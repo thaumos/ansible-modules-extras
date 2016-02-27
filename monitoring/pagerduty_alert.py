@@ -162,15 +162,15 @@ def send_event(module, service_key, event_type, desc,
 def main():
     module = AnsibleModule(
         argument_spec=dict(
-            name=dict(required=True),
-            service_key=dict(required=True),
-            api_key=dict(required=True),
-            state=dict(required=True,
+            name=dict(required=True, type='str'),
+            service_key=dict(required=True, type='str'),
+            api_key=dict(required=True, type='str'),
+            state=dict(required=True, type='str',
                        choices=['triggered', 'acknowledged', 'resolved']),
-            client=dict(required=False, default=None),
-            client_url=dict(required=False, default=None),
-            desc=dict(required=False, default='Created via Ansible'),
-            incident_key=dict(required=False, default=None)
+            client=dict(required=False, type='str', default=None),
+            client_url=dict(required=False, type='str', default=None),
+            desc=dict(required=False, type='str', default='Created via Ansible'),
+            incident_key=dict(required=False, type='str', default=None)
         ),
         supports_check_mode=True
     )
